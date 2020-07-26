@@ -16,6 +16,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'BASE_URL', "\"https://www.potterapi.com/v1/\""
+        buildConfigField 'String', 'API_KEY', "\"\$2a\$10\$1JEnmtEF417yBaFZcr51qukRjaKv8d5toEG5DKP/IUZWIVwfsaF7y\""
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -32,8 +34,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$version_core"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -64,6 +67,9 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.squareup.okhttp3:okhttp:4.8.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.8.0"
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
 
     // Moshi
     implementation "com.squareup.moshi:moshi:$version_moshi"
