@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/housesFragment">
+    <fragment
+        android:id="@+id/housesFragment"
+        android:name="com.potter.triwizard.HousesFragment"
+        android:label="fragment_houses"
+        tools:layout="@layout/fragment_houses" />
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.potter.triwizard.StudentsFragment"
+        android:label="fragment_students"
+        tools:layout="@layout/fragment_students" />
+    <fragment
+        android:id="@+id/spellsFragment"
+        android:name="com.potter.triwizard.SpellsFragment"
+        android:label="fragment_spells"
+        tools:layout="@layout/fragment_spells" />
+</navigation>

@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 30
@@ -23,7 +24,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -41,11 +44,16 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
 
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
+
     //Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
 
     //Dagger for dependency Injection
     implementation "com.google.dagger:dagger:$version_dagger"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$version_dagger"
     implementation "com.google.dagger:hilt-android:$version_daggerhilt"
     kapt "com.google.dagger:hilt-android-compiler:$version_daggerhilt"
