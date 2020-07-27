@@ -7,16 +7,16 @@
     <fragment
         android:id="@+id/housesFragment"
         android:name="com.potter.triwizard.ui.house.HousesFragment"
-        android:label="fragment_houses"
+        android:label="Houses"
         tools:layout="@layout/fragment_houses" />
     <fragment
         android:id="@+id/studentsFragment"
         android:name="com.potter.triwizard.ui.StudentsFragment"
-        android:label="fragment_students"
+        android:label="Students"
         tools:layout="@layout/fragment_students" />
     <fragment
         android:id="@+id/spellsFragment"
         android:name="com.potter.triwizard.ui.SpellsFragment"
-        android:label="fragment_spells"
+        android:label="Spells"
         tools:layout="@layout/fragment_spells" />
 </navigation>
