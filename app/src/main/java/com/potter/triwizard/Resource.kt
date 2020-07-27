@@ -1,12 +1,8 @@
 package com.potter.triwizard
 
-data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
+import com.potter.triwizard.util.Status
 
-    enum class Status {
-        SUCCESS,
-        ERROR,
-        LOADING
-    }
+data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 
     companion object {
         fun <T> success(data: T?): Resource<T> {

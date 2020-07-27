@@ -1,6 +1,7 @@
 package com.potter.triwizard.repository
 
 import com.potter.triwizard.data.House
+import com.potter.triwizard.data.HouseResponse
 import io.reactivex.rxjava3.core.Flowable
 import retrofit2.Response
 

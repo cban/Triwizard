@@ -9,14 +9,15 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
-import io.reactivex.rxjava3.core.Scheduler
-import io.reactivex.rxjava3.schedulers.Schedulers
+import okhttp3.HttpUrl
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(ApplicationComponent::class)
@@ -26,19 +27,25 @@ object NetworkModule {
     fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Provides
-    fun provideAuthInterceptor() = AuthInteceptor()
-
-    @Provides
     @Singleton
     fun provideAuthInterceptorOkHttpClient(
-        authInterceptor: AuthInteceptor
+
     ): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
-
         okHttpClientBuilder.addInterceptor(logging)
-        return okHttpClientBuilder.addInterceptor(authInterceptor)
+        okHttpClientBuilder.addInterceptor { chain ->
+            val url = chain
+                .request()
+                .url
+                .newBuilder()
+                .addQueryParameter("key", BuildConfig.API_KEY)
+                .build()
+            chain.proceed(chain.request().newBuilder().url(url).build())
+        }
+       // okHttpClientBuilder.addInterceptor(AuthInteceptor())
+        return okHttpClientBuilder
             .build()
     }
 
@@ -48,8 +55,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.createWithScheduler(Schedulers.io()))
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 

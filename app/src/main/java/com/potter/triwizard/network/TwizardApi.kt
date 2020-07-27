@@ -1,9 +1,6 @@
 package com.potter.triwizard.network
 
-import com.potter.triwizard.data.Character
-import com.potter.triwizard.data.CharacterResponse
-import com.potter.triwizard.data.House
-import com.potter.triwizard.data.Spell
+import com.potter.triwizard.data.*
 import io.reactivex.rxjava3.core.Flowable
 import retrofit2.Response
 import retrofit2.http.GET

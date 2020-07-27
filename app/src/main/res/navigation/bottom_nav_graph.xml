@@ -6,17 +6,17 @@
     app:startDestination="@id/housesFragment">
     <fragment
         android:id="@+id/housesFragment"
-        android:name="com.potter.triwizard.HousesFragment"
+        android:name="com.potter.triwizard.ui.house.HousesFragment"
         android:label="fragment_houses"
         tools:layout="@layout/fragment_houses" />
     <fragment
         android:id="@+id/studentsFragment"
-        android:name="com.potter.triwizard.StudentsFragment"
+        android:name="com.potter.triwizard.ui.StudentsFragment"
         android:label="fragment_students"
         tools:layout="@layout/fragment_students" />
     <fragment
         android:id="@+id/spellsFragment"
-        android:name="com.potter.triwizard.SpellsFragment"
+        android:name="com.potter.triwizard.ui.SpellsFragment"
         android:label="fragment_spells"
         tools:layout="@layout/fragment_spells" />
 </navigation>

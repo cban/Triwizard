@@ -5,4 +5,8 @@
     <string name="houses">Houses</string>
     <string name="students">Students</string>
     <string name="spells">spells</string>
+    <string name="head_of_house_heading">Head of House : </string>
+    <string name="founder">Founder :</string>
+    <string name="load_error_message">Failed to load houses</string>
+    <string name="house_images">House Images</string>
 </resources>

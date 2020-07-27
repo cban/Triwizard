@@ -1,23 +1,21 @@
-package com.potter.triwizard
+package com.potter.triwizard.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.potter.triwizard.databinding.ActivityMainBinding
-import com.potter.triwizard.databinding.FragmentSpellsBinding
+import com.potter.triwizard.databinding.FragmentStudentsBinding
 
+class StudentsFragment : Fragment() {
 
-class SpellsFragment : Fragment() {
-
-    private lateinit var binding: FragmentSpellsBinding
+    private lateinit var binding: FragmentStudentsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSpellsBinding.inflate(inflater, container, false)
+        binding = FragmentStudentsBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
