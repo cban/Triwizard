@@ -3,6 +3,8 @@ package com.potter.triwizard.injection
 import com.potter.triwizard.BuildConfig
 import com.potter.triwizard.network.AuthInteceptor
 import com.potter.triwizard.network.TwizardApi
+import com.potter.triwizard.repository.HousesRepository
+import com.potter.triwizard.repository.impl.HouseRepositoryImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +26,9 @@ object NetworkModule {
     fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Provides
+    fun provideAuthInterceptor() = AuthInteceptor()
+
+    @Provides
     @Singleton
     fun provideAuthInterceptorOkHttpClient(
         authInterceptor: AuthInteceptor
@@ -39,7 +44,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, baseUrl: String): Retrofit? {
+    fun provideRetrofit(okHttpClient: OkHttpClient, baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
@@ -51,4 +56,10 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit) = retrofit.create(TwizardApi::class.java)
+
+    @Provides
+    fun provideHouseRepository(twizardApi: TwizardApi): HousesRepository {
+        return HouseRepositoryImp(twizardApi)
+    }
+
 }
