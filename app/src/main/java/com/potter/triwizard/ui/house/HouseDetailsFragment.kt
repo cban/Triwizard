@@ -19,13 +19,11 @@ import com.potter.triwizard.util.Status
 class HouseDetailsFragment : Fragment() {
     private val viewModel: HouseViewModel by activityViewModels()
     private val args: HouseDetailsFragmentArgs by navArgs()
-    lateinit var binding: FragmentHouseDetailsBinding
-    lateinit var house: LiveData<Resource<House>>
+    private lateinit var binding: FragmentHouseDetailsBinding
+    private lateinit var house: LiveData<Resource<House>>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         args.houseId?.let { viewModel.setId(it) }
-
-
     }
 
     override fun onCreateView(
@@ -33,7 +31,6 @@ class HouseDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHouseDetailsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

@@ -6,27 +6,25 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.potter.triwizard.R
-import com.potter.triwizard.databinding.ActivityMainBinding
+import com.potter.triwizard.databinding.ActivityHomeBinding
 import com.potter.triwizard.util.remove
 import com.potter.triwizard.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupViews()
     }
 
     private fun setupViews() {
         val navController = findNavController(R.id.fragNavHost)
-
         binding.bottomNavView.setupWithNavController(navController)
-
         setupActionBarWithNavController(this, navController)
     }
 
@@ -37,5 +35,4 @@ class HomeActivity : AppCompatActivity() {
     fun hideBottomNavigation() {
         binding.bottomNavView.remove()
     }
-
 }

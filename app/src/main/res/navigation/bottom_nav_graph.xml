@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_students" />
     <fragment
         android:id="@+id/spellsFragment"
-        android:name="com.potter.triwizard.ui.SpellsFragment"
+        android:name="com.potter.triwizard.ui.spell.SpellsFragment"
         android:label="Spells"
         tools:layout="@layout/fragment_spells" />
     <fragment

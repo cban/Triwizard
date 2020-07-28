@@ -18,8 +18,9 @@
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
         android:backgroundTint="@color/cardview_shadow_start_color"
-        app:labelVisibilityMode="labeled" />
+        app:itemTextColor="@color/primaryTextColor"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

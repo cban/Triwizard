@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface TwizardApi {
 
     @GET("characters")
-    suspend  fun getCharacters(): Response<CharacterResponse>
+    suspend  fun getCharacters(): Response<List<Character>>
 
     @GET("characters/:character_id")
     suspend fun getStudent(@Path("character_id") accountId: String): Response<Character>

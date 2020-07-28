@@ -39,7 +39,6 @@ class HousesFragment : Fragment() {
             val action =
                 HousesFragmentDirections.actionHousesFragmentToHouseDetailsFragment(houseId = house._id)
             findNavController().navigate(action)
-            Toast.makeText(requireContext(), house.name, Toast.LENGTH_SHORT).show()
         }
         binding.homesRecyclerView.adapter = adapter
         binding.homesRecyclerView.layoutManager =

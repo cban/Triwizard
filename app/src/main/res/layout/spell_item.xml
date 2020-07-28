@@ -21,12 +21,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/spells_image"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:contentDescription="@string/spells_image_description"
                 android:scaleType="fitCenter"
@@ -42,6 +42,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintStart_toEndOf="@+id/spells_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Spell" />
@@ -62,6 +63,7 @@
                 android:id="@+id/spell_effect_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_margin"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

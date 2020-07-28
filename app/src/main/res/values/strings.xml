@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="houses">Houses</string>
     <string name="students">Students</string>
-    <string name="spells">spells</string>
+    <string name="spells">Spells</string>
     <string name="head_of_house_heading">Head of House : </string>
     <string name="founder">Founder :</string>
     <string name="load_error_message">Failed to load houses</string>
