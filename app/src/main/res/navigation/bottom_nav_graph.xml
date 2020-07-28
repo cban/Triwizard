@@ -19,7 +19,11 @@
         android:id="@+id/studentsFragment"
         android:name="com.potter.triwizard.ui.student.StudentsFragment"
         android:label="Students"
-        tools:layout="@layout/fragment_students" />
+        tools:layout="@layout/fragment_students" >
+        <action
+            android:id="@+id/action_studentsFragment_to_studentDetailsFragment"
+            app:destination="@id/studentDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/spellsFragment"
         android:name="com.potter.triwizard.ui.spell.SpellsFragment"
@@ -35,5 +39,10 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/studentDetailsFragment"
+        android:name="com.potter.triwizard.ui.student.StudentDetailsFragment"
+        android:label="fragment_student_details"
+        tools:layout="@layout/fragment_student_details" />
 
 </navigation>
