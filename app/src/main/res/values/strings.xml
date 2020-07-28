@@ -14,4 +14,10 @@
     <string name="our_values_label">Our Values</string>
     <string name="spells_image_description">spells image icon</string>
     <string name="student_names">Student Names</string>
+    <string name="ministry_of_magic">Ministry Of Magic</string>
+    <string name="order_of_the_phoenix">Order of the Phoenix</string>
+    <string name="dumble_dores_army">Dumble Dores Army</string>
+    <string name="death_eater">Death Eater</string>
+    <string name="blood_status">Blood Status</string>
+    <string name="species">Species</string>
 </resources>

@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_houses" >
         <action
             android:id="@+id/action_housesFragment_to_houseDetailsFragment"
-            app:destination="@id/houseDetailsFragment" />
+            app:destination="@id/houseDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
 
 
     </fragment>
@@ -22,7 +26,11 @@
         tools:layout="@layout/fragment_students" >
         <action
             android:id="@+id/action_studentsFragment_to_studentDetailsFragment"
-            app:destination="@id/studentDetailsFragment" />
+            app:destination="@id/studentDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/spellsFragment"
@@ -42,7 +50,11 @@
     <fragment
         android:id="@+id/studentDetailsFragment"
         android:name="com.potter.triwizard.ui.student.StudentDetailsFragment"
-        android:label="fragment_student_details"
-        tools:layout="@layout/fragment_student_details" />
+        android:label="Student Details"
+        tools:layout="@layout/fragment_student_details" >
+        <argument
+            android:name="character_id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.potter.triwizard.R
 import com.potter.triwizard.data.Character
 import com.potter.triwizard.databinding.FragmentStudentsBinding
@@ -31,9 +32,9 @@ class StudentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = StudentsAdapter { student ->
-//            val action =
-//                HousesFragmentDirections.actionHousesFragmentToHouseDetailsFragment(houseId = house._id)
-//            findNavController().navigate(action)
+            val action =
+                StudentsFragmentDirections.actionStudentsFragmentToStudentDetailsFragment(student._id)
+            findNavController().navigate(action)
         }
         binding.studentRecyclerView.adapter = adapter
         updateList()

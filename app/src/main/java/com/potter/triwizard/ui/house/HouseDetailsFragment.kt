@@ -22,6 +22,7 @@ class HouseDetailsFragment : Fragment() {
     private lateinit var binding: FragmentHouseDetailsBinding
     private lateinit var house: LiveData<Resource<List<HouseResponse>>>
     private lateinit var adapter: HouseMembersAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         args.houseId?.let { viewModel.setId(it) }
