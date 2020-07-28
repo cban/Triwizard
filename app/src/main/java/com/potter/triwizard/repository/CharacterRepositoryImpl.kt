@@ -5,8 +5,8 @@ import com.potter.triwizard.network.TwizardApi
 import retrofit2.Response
 import javax.inject.Inject
 
-class StudentRepositoryImpl @Inject constructor(private var twizardApi: TwizardApi) :
-    StudentRepository {
+class CharacterRepositoryImpl @Inject constructor(private var twizardApi: TwizardApi) :
+    CharacterRepository {
     override suspend fun getStudents(): Response<List<Character>> = twizardApi.getCharacters()
 
     override suspend fun getCharacterById(character_id: String): Response<Character> =
