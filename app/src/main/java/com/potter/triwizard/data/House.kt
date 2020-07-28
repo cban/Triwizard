@@ -3,7 +3,6 @@ package com.potter.triwizard.data
 import com.google.gson.annotations.SerializedName
 
 data class House(
-
     val _id: String,
     val name: String="",
     val mascot: String="",

@@ -8,8 +8,10 @@
     <string name="head_of_house_heading">Head of House : </string>
     <string name="founder">Founder :</string>
     <string name="load_error_message">Failed to load houses</string>
+    <string name="load_error_message_house_details">Failed to load House details</string>
     <string name="house_images">House Images</string>
     <string name="house_ghost_label">House Ghost :</string>
     <string name="our_values_label">Our Values</string>
     <string name="spells_image_description">spells image icon</string>
+    <string name="student_names">Student Names</string>
 </resources>
