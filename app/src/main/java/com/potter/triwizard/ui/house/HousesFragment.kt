@@ -36,12 +36,13 @@ class HousesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = HousesAdapter { house ->
-                val action = HousesFragmentDirections.actionHousesFragmentToHouseDetailsFragment(houseId = house._id)
-                findNavController().navigate(action)
-            Toast.makeText(requireContext(), house.name, Toast.LENGTH_SHORT).show()
+            val action =
+                HousesFragmentDirections.actionHousesFragmentToHouseDetailsFragment(houseId = house._id)
+            findNavController().navigate(action)
         }
         binding.homesRecyclerView.adapter = adapter
-       binding.homesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+        binding.homesRecyclerView.layoutManager =
+            GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
         updateList()
     }
 
@@ -60,7 +61,11 @@ class HousesFragment : Fragment() {
                 }
                 Status.ERROR -> {
                     binding.progressBar.remove()
-                    Toast.makeText(requireContext(), getString(R.string.load_error_message), Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.load_error_message),
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 }
             }
