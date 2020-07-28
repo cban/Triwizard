@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/housesFragment">
+    <fragment
+        android:id="@+id/housesFragment"
+        android:name="com.potter.triwizard.ui.house.HousesFragment"
+        android:label="Houses"
+        tools:layout="@layout/fragment_houses" >
+        <action
+            android:id="@+id/action_housesFragment_to_houseDetailsFragment"
+            app:destination="@id/houseDetailsFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.potter.triwizard.ui.StudentsFragment"
+        android:label="Students"
+        tools:layout="@layout/fragment_students" />
+    <fragment
+        android:id="@+id/spellsFragment"
+        android:name="com.potter.triwizard.ui.spell.SpellsFragment"
+        android:label="Spells"
+        tools:layout="@layout/fragment_spells" />
+    <fragment
+        android:id="@+id/houseDetailsFragment"
+        android:name="com.potter.triwizard.ui.house.HouseDetailsFragment"
+        android:label="House Details"
+        tools:layout="@layout/fragment_house_details">
+        <argument
+            android:name="houseId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
