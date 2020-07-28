@@ -1,17 +1,18 @@
-package com.potter.triwizard
+package com.potter.triwizard.ui.house
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.potter.triwizard.R
 import com.potter.triwizard.databinding.ActivityMainBinding
 import com.potter.triwizard.util.remove
 import com.potter.triwizard.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import com.potter.triwizard.MainActivity
 import com.potter.triwizard.util.Resource
 import com.potter.triwizard.data.House
 import com.potter.triwizard.databinding.FragmentHouseDetailsBinding
@@ -66,11 +65,11 @@ class HouseDetailsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (activity as MainActivity).hideBottomNavigation()
+        (activity as HomeActivity).hideBottomNavigation()
     }
 
     override fun onDetach() {
-        (activity as MainActivity).showBottomNavigation()
+        (activity as HomeActivity).showBottomNavigation()
         super.onDetach()
     }
 }
