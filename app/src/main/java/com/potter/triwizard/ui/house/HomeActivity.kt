@@ -1,8 +1,9 @@
 package com.potter.triwizard.ui.house
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.potter.triwizard.R
@@ -25,9 +26,19 @@ class HomeActivity : AppCompatActivity() {
     private fun setupViews() {
         val navController = findNavController(R.id.fragNavHost)
         binding.bottomNavView.setupWithNavController(navController)
-        setupActionBarWithNavController(this, navController)
+        setSupportActionBar(binding.topAppBar)
+        val bottomNavDestinationIds = setOf(
+            R.id.housesFragment,
+            R.id.studentsFragment,
+            R.id.spellsFragment
+        )
+        val appBarConfig = AppBarConfiguration(bottomNavDestinationIds)
+        setupActionBarWithNavController(this, navController, appBarConfig)
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.fragNavHost).navigateUp()
+                || super.onSupportNavigateUp()
+    }
     fun showBottomNavigation() {
         binding.bottomNavView.show()
     }

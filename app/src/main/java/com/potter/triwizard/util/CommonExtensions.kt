@@ -32,3 +32,4 @@ inline fun View.hideIf(predicate: () -> Boolean) : View {
     }
     return this
 }
+fun List<String>.concat() = this.joinToString(" | ") { it }

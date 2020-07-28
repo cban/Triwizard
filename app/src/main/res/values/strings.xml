@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Triwizard</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="houses">Houses</string>
     <string name="students">Students</string>
@@ -8,8 +7,17 @@
     <string name="head_of_house_heading">Head of House : </string>
     <string name="founder">Founder :</string>
     <string name="load_error_message">Failed to load houses</string>
+    <string name="load_error_message_house_details">Failed to load House details</string>
+    <string name="load_error_message_students">Failed to load Students </string>
     <string name="house_images">House Images</string>
     <string name="house_ghost_label">House Ghost :</string>
     <string name="our_values_label">Our Values</string>
     <string name="spells_image_description">spells image icon</string>
+    <string name="student_names">Student Names</string>
+    <string name="ministry_of_magic">Ministry Of Magic</string>
+    <string name="order_of_the_phoenix">Order of the Phoenix</string>
+    <string name="dumble_dores_army">Dumble Dores Army</string>
+    <string name="death_eater">Death Eater</string>
+    <string name="blood_status">Blood Status</string>
+    <string name="species">Species</string>
 </resources>
