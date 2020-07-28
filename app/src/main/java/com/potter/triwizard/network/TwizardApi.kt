@@ -13,7 +13,7 @@ interface TwizardApi {
     suspend  fun getCharacters(): Response<List<Character>>
 
     @GET("characters/:character_id")
-    suspend fun getStudent(@Path("character_id") accountId: String): Response<Character>
+    suspend fun getCharacterById(@Path("character_id") accountId: String): Response<Character>
 
     @GET("houses")
    suspend fun getHouses(): Response<List<House>>

@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentsFragment"
-        android:name="com.potter.triwizard.ui.StudentsFragment"
+        android:name="com.potter.triwizard.ui.student.StudentsFragment"
         android:label="Students"
         tools:layout="@layout/fragment_students" />
     <fragment
