@@ -5,6 +5,7 @@ import io.reactivex.rxjava3.core.Flowable
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface TwizardApi {
 
@@ -17,8 +18,8 @@ interface TwizardApi {
     @GET("houses")
    suspend fun getHouses(): Response<List<House>>
 
-    @GET("houses/:house_id")
-    suspend fun getHouse(@Path("houses_id") houseId: String): Response<House>
+    @GET("houses/{id}")
+    suspend fun getHouse(@Path("id") houseId: String): Response<House>
 
     @GET("spells")
     suspend fun getSpells(): Response<List<Spell>>
