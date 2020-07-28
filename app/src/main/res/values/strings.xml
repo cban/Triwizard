@@ -11,4 +11,5 @@
     <string name="house_images">House Images</string>
     <string name="house_ghost_label">House Ghost :</string>
     <string name="our_values_label">Our Values</string>
+    <string name="spells_image_description">spells image icon</string>
 </resources>
