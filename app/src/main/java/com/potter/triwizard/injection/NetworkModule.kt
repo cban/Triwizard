@@ -1,21 +1,20 @@
 package com.potter.triwizard.injection
 
 import com.potter.triwizard.BuildConfig
-import com.potter.triwizard.network.AuthInteceptor
 import com.potter.triwizard.network.TwizardApi
-import com.potter.triwizard.repository.HousesRepository
-import com.potter.triwizard.repository.impl.HouseRepositoryImp
+import com.potter.triwizard.repository.HouseRepository
+import com.potter.triwizard.repository.HouseRepositoryImp
+import com.potter.triwizard.repository.SpellRepository
+import com.potter.triwizard.repository.SpellRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import okhttp3.HttpUrl
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import javax.inject.Singleton
 
 
@@ -64,8 +63,12 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit) = retrofit.create(TwizardApi::class.java)
 
     @Provides
-    fun provideHouseRepository(twizardApi: TwizardApi): HousesRepository {
+    fun provideHouseRepository(twizardApi: TwizardApi): HouseRepository {
         return HouseRepositoryImp(twizardApi)
+    }
+    @Provides
+    fun provideSpellRepository(twizardApi: TwizardApi): SpellRepository {
+        return SpellRepositoryImpl(twizardApi)
     }
 
 }

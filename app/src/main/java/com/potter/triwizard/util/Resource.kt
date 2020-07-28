@@ -1,6 +1,4 @@
-package com.potter.triwizard
-
-import com.potter.triwizard.util.Status
+package com.potter.triwizard.util
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 
@@ -10,7 +8,11 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
         }
 
         fun <T> error(message: String, data: T? = null): Resource<T> {
-            return Resource(Status.ERROR, data, message)
+            return Resource(
+                Status.ERROR,
+                data,
+                message
+            )
         }
 
         fun <T> loading(data: T? = null): Resource<T> {

@@ -6,6 +6,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.potter.triwizard.databinding.ActivityMainBinding
+import com.potter.triwizard.util.remove
+import com.potter.triwizard.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +27,14 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavView.setupWithNavController(navController)
 
         setupActionBarWithNavController(this, navController)
+    }
+
+    fun showBottomNavigation() {
+        binding.bottomNavView.show()
+    }
+
+    fun hideBottomNavigation() {
+        binding.bottomNavView.remove()
     }
 
 }

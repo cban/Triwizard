@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.potter.triwizard.R
 import com.potter.triwizard.databinding.FragmentHousesBinding
@@ -35,7 +36,8 @@ class HousesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = HousesAdapter { house ->
-            // TODO: Navigate to details screen.
+                val action = HousesFragmentDirections.actionHousesFragmentToHouseDetailsFragment(houseId = house._id)
+                findNavController().navigate(action)
             Toast.makeText(requireContext(), house.name, Toast.LENGTH_SHORT).show()
         }
         binding.homesRecyclerView.adapter = adapter
