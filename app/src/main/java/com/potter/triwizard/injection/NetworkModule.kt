@@ -2,10 +2,7 @@ package com.potter.triwizard.injection
 
 import com.potter.triwizard.BuildConfig
 import com.potter.triwizard.network.TwizardApi
-import com.potter.triwizard.repository.HouseRepository
-import com.potter.triwizard.repository.HouseRepositoryImp
-import com.potter.triwizard.repository.SpellRepository
-import com.potter.triwizard.repository.SpellRepositoryImpl
+import com.potter.triwizard.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -70,5 +67,10 @@ object NetworkModule {
     fun provideSpellRepository(twizardApi: TwizardApi): SpellRepository {
         return SpellRepositoryImpl(twizardApi)
     }
+    @Provides
+    fun provideStudentRepository(twizardApi: TwizardApi): StudentRepository {
+        return StudentRepositoryImpl(twizardApi)
+    }
+
 
 }

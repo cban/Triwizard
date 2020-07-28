@@ -1,4 +1,4 @@
-package com.potter.triwizard.ui
+package com.potter.triwizard.ui.student
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
