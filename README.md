@@ -2,6 +2,7 @@
 
 ![Build Status](https://app.bitrise.io/app/c8fad4df7c194646/status.svg?token=yTAus6PBEy5GJZ86KYGoEg)
 
+
 A mobile application in order for students to better track spells, houses and pupils
 
 Technologies Used
