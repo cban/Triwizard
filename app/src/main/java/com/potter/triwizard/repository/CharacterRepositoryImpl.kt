@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 class CharacterRepositoryImpl @Inject constructor(private var twizardApi: TwizardApi) :
     CharacterRepository {
+
     override suspend fun getStudents(): Response<List<Character>> = twizardApi.getCharacters()
 
     override suspend fun getCharacterById(character_id: String): Response<Character> =

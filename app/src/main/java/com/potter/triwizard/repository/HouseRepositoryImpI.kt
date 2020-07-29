@@ -3,7 +3,7 @@ package com.potter.triwizard.repository
 import com.potter.triwizard.network.TwizardApi
 import javax.inject.Inject
 
-class HouseRepositoryImp @Inject constructor(private var twizardApi: TwizardApi) :
+class HouseRepositoryImpI @Inject constructor(private var twizardApi: TwizardApi) :
     HouseRepository {
 
     override suspend fun getHouses() = twizardApi.getHouses()
