@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 class SpellRepositoryImpl @Inject constructor(private var twizardApi: TwizardApi) :
     SpellRepository {
-    override suspend fun getHouses(): Response<List<Spell>> = twizardApi.getSpells()
+    override suspend fun getSpells(): Response<List<Spell>> = twizardApi.getSpells()
 }

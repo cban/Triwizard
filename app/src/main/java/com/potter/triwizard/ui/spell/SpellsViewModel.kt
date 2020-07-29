@@ -23,7 +23,7 @@ class SpellsViewModel @ViewModelInject constructor(private val repository: Spell
     private fun getSpells() {
         viewModelScope.launch {
             _spells.postValue(Resource.loading(null))
-            repository.getHouses().let {
+            repository.getSpells().let {
                 if (it.isSuccessful) {
                     _spells.postValue(Resource.success(it.body()))
                 } else _spells.postValue(

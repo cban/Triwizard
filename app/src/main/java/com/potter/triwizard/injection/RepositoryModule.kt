@@ -11,7 +11,7 @@ import dagger.hilt.android.components.ApplicationComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun provideHouseRepository(impl: HouseRepositoryImp): HouseRepository
+    abstract fun provideHouseRepository(impl: HouseRepositoryImpI): HouseRepository
 
     @Binds
     abstract fun provideSpellRepository(impl: SpellRepositoryImpl): SpellRepository
