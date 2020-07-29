@@ -15,10 +15,7 @@ import com.potter.triwizard.databinding.FragmentHousesBinding
 import com.potter.triwizard.util.Status
 import com.potter.triwizard.util.remove
 import com.potter.triwizard.util.show
-import dagger.hilt.android.AndroidEntryPoint
 
-
-@AndroidEntryPoint
 class HousesFragment : Fragment() {
     private lateinit var binding: FragmentHousesBinding
     private lateinit var viewModel: HouseViewModel
@@ -43,10 +40,10 @@ class HousesFragment : Fragment() {
         binding.homesRecyclerView.adapter = adapter
         binding.homesRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-        updateList()
+        updateHouseList()
     }
 
-    private fun updateList() {
+    private fun updateHouseList() {
         viewModel.houses.observe(viewLifecycleOwner, Observer { houses ->
             when (houses.status) {
                 Status.SUCCESS -> {

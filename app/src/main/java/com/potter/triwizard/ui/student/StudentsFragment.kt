@@ -41,7 +41,7 @@ class StudentsFragment : Fragment() {
     }
 
     private fun updateList() {
-        var filteredStudentsList: List<Character> = listOf()
+        var filteredStudentsList = listOf<Character>()
         viewModel.students.observe(viewLifecycleOwner, Observer { characters ->
             when (characters.status) {
                 Status.SUCCESS -> {
@@ -62,7 +62,7 @@ class StudentsFragment : Fragment() {
                     binding.studentsProgressBar.remove()
                     Toast.makeText(
                         requireContext(),
-                        getString(R.string.load_error_message),
+                        getString(R.string.load_error_message_students),
                         Toast.LENGTH_LONG
                     ).show()
                 }

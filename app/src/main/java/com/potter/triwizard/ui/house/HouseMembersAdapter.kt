@@ -32,7 +32,7 @@ class HouseMembersAdapter : ListAdapter<Member, HouseMembersAdapter.ViewHolder>(
     override fun onBindViewHolder(holder: HouseMembersAdapter.ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-        }
+    }
 
     companion object {
         @VisibleForTesting
@@ -41,6 +41,7 @@ class HouseMembersAdapter : ListAdapter<Member, HouseMembersAdapter.ViewHolder>(
             override fun areItemsTheSame(oldItem: Member, newItem: Member): Boolean {
                 return oldItem == newItem
             }
+
             override fun areContentsTheSame(oldItem: Member, newItem: Member): Boolean {
                 return true
             }

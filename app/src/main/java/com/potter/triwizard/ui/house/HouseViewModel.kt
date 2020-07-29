@@ -5,15 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.potter.triwizard.util.Resource
 import com.potter.triwizard.data.House
 import com.potter.triwizard.data.HouseResponse
 import com.potter.triwizard.repository.HouseRepository
+import com.potter.triwizard.util.Resource
 import kotlinx.coroutines.launch
 
-class HouseViewModel @ViewModelInject constructor(
-    private val repository: HouseRepository
+class HouseViewModel @ViewModelInject constructor(private val repository: HouseRepository
 ) : ViewModel() {
+
     private val _houses = MutableLiveData<Resource<List<House>>>()
     val houses: LiveData<Resource<List<House>>>
         get() = _houses

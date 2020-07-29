@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.potter.triwizard.R
 import com.potter.triwizard.data.HouseResponse
 import com.potter.triwizard.databinding.FragmentHouseDetailsBinding
+import com.potter.triwizard.ui.HomeActivity
 import com.potter.triwizard.util.*
 
 class HouseDetailsFragment : Fragment() {

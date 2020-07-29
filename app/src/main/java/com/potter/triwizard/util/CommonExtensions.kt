@@ -2,6 +2,8 @@ package com.potter.triwizard.util
 
 import android.view.View
 
+fun List<String>.concat() = this.joinToString(" | ") { it }
+
 fun View.show() : View {
     if (visibility != View.VISIBLE) {
         visibility = View.VISIBLE
@@ -32,4 +34,3 @@ inline fun View.hideIf(predicate: () -> Boolean) : View {
     }
     return this
 }
-fun List<String>.concat() = this.joinToString(" | ") { it }
