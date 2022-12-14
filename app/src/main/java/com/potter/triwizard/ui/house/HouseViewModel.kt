@@ -1,17 +1,17 @@
 package com.potter.triwizard.ui.house
 
+import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.potter.triwizard.data.House
 import com.potter.triwizard.data.HouseResponse
 import com.potter.triwizard.repository.HouseRepository
 import com.potter.triwizard.util.Resource
 import kotlinx.coroutines.launch
 
-class HouseViewModel @ViewModelInject constructor(private val repository: HouseRepository
+class HouseViewModel @ViewModelInject constructor(
+    @Assisted private val savedStateHandle: SavedStateHandle,
+    private val repository: HouseRepository
 ) : ViewModel() {
 
     private val _houses = MutableLiveData<Resource<List<House>>>()
@@ -20,7 +20,7 @@ class HouseViewModel @ViewModelInject constructor(private val repository: HouseR
     private val _selectedHouse = MutableLiveData<Resource<List<HouseResponse>>>()
     val selectedHouse: LiveData<Resource<List<HouseResponse>>>
         get() = _selectedHouse
-    private var selectedHouseId: String = ""
+    private var selectedHouseId: String = savedStateHandle.get<String>("id") ?: ""
 
     init {
         getHouses()
@@ -28,13 +28,22 @@ class HouseViewModel @ViewModelInject constructor(private val repository: HouseR
 
     private fun getHouses() {
         viewModelScope.launch {
-            _houses.postValue(Resource.loading(null))
-            repository.getHouses().let {
-                if (it.isSuccessful) {
-                    _houses.postValue(Resource.success(it.body()))
-                } else _houses.postValue(
+            try {
+                _houses.postValue(Resource.loading(null))
+                repository.getHouses().let {
+                    if (it.isSuccessful) {
+                        _houses.postValue(Resource.success(it.body()))
+                    } else _houses.postValue(
+                        Resource.error(
+                            it.errorBody().toString() + it.raw().body,
+                            null
+                        )
+                    )
+                }
+            } catch (e: Exception) {
+                _houses.postValue(
                     Resource.error(
-                        it.errorBody().toString() + it.raw().body,
+                        e.message!!,
                         null
                     )
                 )
@@ -42,19 +51,28 @@ class HouseViewModel @ViewModelInject constructor(private val repository: HouseR
         }
     }
 
-    fun setId(id: String) {
-        selectedHouseId = id
+    fun setHouseId(id: String) {
+        savedStateHandle["id"] = id
     }
 
     fun getHouse() {
         viewModelScope.launch {
-            _selectedHouse.postValue(Resource.loading(null))
-            repository.getHouseById(selectedHouseId).let {
-                if (it.isSuccessful) {
-                    _selectedHouse.postValue(Resource.success(it.body()))
-                } else _houses.postValue(
+            try {
+                _selectedHouse.postValue(Resource.loading(null))
+                repository.getHouseById(selectedHouseId).let {
+                    if (it.isSuccessful) {
+                        _selectedHouse.postValue(Resource.success(it.body()))
+                    } else _houses.postValue(
+                        Resource.error(
+                            it.errorBody().toString() + it.raw().body,
+                            null
+                        )
+                    )
+                }
+            } catch (e: Exception) {
+                _houses.postValue(
                     Resource.error(
-                        it.errorBody().toString() + it.raw().body,
+                        e.message!!,
                         null
                     )
                 )

@@ -26,7 +26,7 @@ class HouseDetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        args.houseId?.let { viewModel.setId(it) }
+        args.houseId?.let { viewModel.setHouseId(it) }
     }
 
     override fun onCreateView(

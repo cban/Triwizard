@@ -46,13 +46,22 @@ class StudentViewModel @ViewModelInject constructor(private val characterReposit
 
     fun getStudent() {
         viewModelScope.launch {
-            _selectedStudent.postValue(Resource.loading(null))
-            characterRepository.getCharacterById(selectedStudentId).let {
-                if (it.isSuccessful) {
-                    _selectedStudent.postValue(Resource.success(it.body()))
-                } else _selectedStudent.postValue(
+            try {
+                _selectedStudent.postValue(Resource.loading(null))
+                characterRepository.getCharacterById(selectedStudentId).let {
+                    if (it.isSuccessful) {
+                        _selectedStudent.postValue(Resource.success(it.body()))
+                    } else _selectedStudent.postValue(
+                        Resource.error(
+                            it.errorBody().toString() + it.raw().body,
+                            null
+                        )
+                    )
+                }
+            } catch (e: Throwable) {
+                _selectedStudent.postValue(
                     Resource.error(
-                        it.errorBody().toString() + it.raw().body,
+                        e.message!!,
                         null
                     )
                 )

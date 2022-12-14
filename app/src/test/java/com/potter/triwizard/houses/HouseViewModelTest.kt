@@ -1,6 +1,7 @@
 package com.potter.triwizard.houses
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.SavedStateHandle
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.potter.triwizard.TestCoroutineRule
@@ -40,7 +41,8 @@ class HouseViewModelTest {
         testCoroutineRule.runBlockingTest {
             whenever(houseRepository.getHouses()).thenReturn(response)
         }
-        viewModel = HouseViewModel(houseRepository)
+        val savedState = SavedStateHandle(mapOf("id" to "testId"))
+        viewModel = HouseViewModel(savedState, houseRepository)
     }
 }
 
