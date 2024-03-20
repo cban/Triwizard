@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.potter.triwizard.R
 import com.potter.triwizard.databinding.FragmentStudentDetailsBinding
-import com.potter.triwizard.ui.house.HomeActivity
+import com.potter.triwizard.ui.HomeActivity
 import com.potter.triwizard.util.Status
 import com.potter.triwizard.util.remove
 import com.potter.triwizard.util.show
@@ -72,7 +72,7 @@ class StudentDetailsFragment : Fragment() {
                     binding.constraintLayoutDetails.remove()
                     Toast.makeText(
                         requireContext(),
-                        getString(R.string.load_error_message_house_details),
+                        getString(R.string.load_error_message_student_details),
                         Toast.LENGTH_LONG
                     ).show()
                 }

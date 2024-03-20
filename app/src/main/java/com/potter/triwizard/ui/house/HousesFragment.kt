@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,13 +16,10 @@ import com.potter.triwizard.databinding.FragmentHousesBinding
 import com.potter.triwizard.util.Status
 import com.potter.triwizard.util.remove
 import com.potter.triwizard.util.show
-import dagger.hilt.android.AndroidEntryPoint
 
-
-@AndroidEntryPoint
 class HousesFragment : Fragment() {
+    private val viewModel: HouseViewModel by activityViewModels()
     private lateinit var binding: FragmentHousesBinding
-    private lateinit var viewModel: HouseViewModel
     private lateinit var adapter: HousesAdapter
 
     override fun onCreateView(
@@ -29,7 +27,6 @@ class HousesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHousesBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(HouseViewModel::class.java)
         return binding.root
     }
 
@@ -43,10 +40,10 @@ class HousesFragment : Fragment() {
         binding.homesRecyclerView.adapter = adapter
         binding.homesRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-        updateList()
+        updateHouseList()
     }
 
-    private fun updateList() {
+    private fun updateHouseList() {
         viewModel.houses.observe(viewLifecycleOwner, Observer { houses ->
             when (houses.status) {
                 Status.SUCCESS -> {

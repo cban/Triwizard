@@ -1,4 +1,4 @@
-package com.potter.triwizard.ui.house
+package com.potter.triwizard.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -35,10 +35,12 @@ class HomeActivity : AppCompatActivity() {
         val appBarConfig = AppBarConfiguration(bottomNavDestinationIds)
         setupActionBarWithNavController(this, navController, appBarConfig)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.fragNavHost).navigateUp()
                 || super.onSupportNavigateUp()
     }
+
     fun showBottomNavigation() {
         binding.bottomNavView.show()
     }
